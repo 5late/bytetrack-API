@@ -126,6 +126,7 @@ func main() {
 
 	router := cors.Default().Handler(route)
 
+	route.HandleFunc("/user/post/create", createUser).Methods("POST")
 	route.NotFoundHandler = http.HandlerFunc(notFound)
 
 	http.ListenAndServe(":31475", router)
